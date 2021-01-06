@@ -1,14 +1,14 @@
 package com.gemography.githubtrendinglanguages.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.List;
 
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class TrendingLanguagesDto {
     private Integer code;
     List<LanguageDto> languages;

@@ -1,6 +1,6 @@
 package com.gemography.githubtrendinglanguages.controller;
 
-import com.gemography.githubtrendinglanguages.provider.dto.ProviderTrendingReposDto;
+import com.gemography.githubtrendinglanguages.dto.TrendingLanguagesDto;
 import com.gemography.githubtrendinglanguages.service.TrendingLanguagesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ public class TrendingLanguagesController {
     private final TrendingLanguagesService trendingLanguagesService;
 
     @GetMapping("/repositories")
-    public ResponseEntity<ProviderTrendingReposDto> fetchTrendingLanguages() {
+    public ResponseEntity<TrendingLanguagesDto> fetchTrendingLanguages() {
         return ResponseEntity.ok(trendingLanguagesService.fetchTrendingLanguages());
     }
 }
