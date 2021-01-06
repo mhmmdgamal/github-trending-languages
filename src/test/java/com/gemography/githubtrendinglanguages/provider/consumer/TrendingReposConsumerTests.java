@@ -59,6 +59,7 @@ public class TrendingReposConsumerTests {
         providerTrendingRepoDto.setId(1L);
         providerTrendingRepoDto.setName("mohamed");
         providerTrendingRepoDto.setLanguage("Java");
+        providerTrendingRepoDto.setHtmlUrl("https://github.com/electronicarts/CnC_Remastered_Collection");
 
         providerTrendingReposDto.setProviderTrendingRepos(Arrays.asList(providerTrendingRepoDto));
 
