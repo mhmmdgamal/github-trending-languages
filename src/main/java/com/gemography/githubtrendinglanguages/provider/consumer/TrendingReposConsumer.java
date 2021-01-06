@@ -1,7 +1,7 @@
-package com.gemography.githubtrendinglanguages.github.consumer;
+package com.gemography.githubtrendinglanguages.provider.consumer;
 
+import com.gemography.githubtrendinglanguages.provider.exception.ProviderGeneralException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -16,7 +16,11 @@ public class TrendingReposConsumer {
     private final RestTemplate restTemplate;
 
     public ResponseEntity<String> fetchTrendingRepos() {
-        return restTemplate.getForEntity(prepareUrlWithLastDays(), String.class);
+        try {
+            return restTemplate.getForEntity(prepareUrlWithLastDays(), String.class);
+        } catch (Exception e) {
+            throw new ProviderGeneralException("Error while fetching repos from github");
+        }
     }
 
     private String prepareUrlWithLastDays() {

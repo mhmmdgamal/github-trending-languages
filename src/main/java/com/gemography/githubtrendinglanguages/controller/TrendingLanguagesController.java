@@ -1,6 +1,6 @@
 package com.gemography.githubtrendinglanguages.controller;
 
-import com.gemography.githubtrendinglanguages.github.consumer.TrendingReposConsumer;
+import com.gemography.githubtrendinglanguages.provider.consumer.TrendingReposConsumer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
