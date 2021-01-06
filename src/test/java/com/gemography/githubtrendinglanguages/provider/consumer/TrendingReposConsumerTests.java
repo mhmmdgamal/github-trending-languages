@@ -3,6 +3,7 @@ package com.gemography.githubtrendinglanguages.provider.consumer;
 import com.gemography.githubtrendinglanguages.provider.dto.ProviderTrendingRepoDto;
 import com.gemography.githubtrendinglanguages.provider.dto.ProviderTrendingReposDto;
 import com.gemography.githubtrendinglanguages.provider.exception.ProviderGeneralException;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -13,7 +14,8 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
@@ -28,6 +30,14 @@ public class TrendingReposConsumerTests {
     @InjectMocks
     private TrendingReposConsumer trendingReposConsumer;
 
+    @BeforeEach
+    public void setup() {
+        when(environment.getProperty("github.query.repos.url"))
+                .thenReturn("QUERY_URL");
+        when(environment.getProperty("github.query.repos.lastDays"))
+                .thenReturn("30");
+    }
+
     @Test
     public void fetchTrendingRepos_whenSuccess_thenAssertNotNull() {
         fetchTrendingRepos_whenSuccess_thenAssertNotNull_Mocks();
@@ -38,10 +48,6 @@ public class TrendingReposConsumerTests {
     }
 
     private void fetchTrendingRepos_whenSuccess_thenAssertNotNull_Mocks() {
-        when(environment.getProperty("github.query.repos.url"))
-                .thenReturn("QUERY_URL");
-        when(environment.getProperty("github.query.repos.lastDays"))
-                .thenReturn("30");
         when(restTemplate.getForObject(anyString(), any()))
                 .thenReturn(initProviderTrendingRepos());
     }
@@ -67,10 +73,6 @@ public class TrendingReposConsumerTests {
     }
 
     private void fetchTrendingRepos_whenExceptionOccurred_thenThrowProviderGeneralException_Mocks() {
-        when(environment.getProperty("github.query.repos.url"))
-                .thenReturn("QUERY_URL");
-        when(environment.getProperty("github.query.repos.lastDays"))
-                .thenReturn("30");
         when(restTemplate.getForObject(anyString(), any()))
                 .thenThrow(RuntimeException.class);
     }
