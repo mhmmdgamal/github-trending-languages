@@ -20,6 +20,10 @@ public class TrendingLanguagesService {
     private final TrendingReposConsumer trendingReposConsumer;
 
     public TrendingLanguagesDto fetchTrendingLanguages() {
+        return buildTrendingLanguagesDto();
+    }
+
+    private TrendingLanguagesDto buildTrendingLanguagesDto() {
         return new TrendingLanguagesDto(200, getLanguages(getGroupedLanguages()));
     }
 
