@@ -4,7 +4,6 @@ import com.gemography.githubtrendinglanguages.provider.dto.ProviderTrendingRepos
 import com.gemography.githubtrendinglanguages.provider.exception.ProviderGeneralException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.env.Environment;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
