@@ -46,11 +46,11 @@ public class TrendingLanguagesService {
 
     private List<LanguageDto> getLanguages(Map<String, List<ProviderTrendingRepoDto>> groupedLanguages) {
         return groupedLanguages.keySet().stream()
-                .map(mapToLanguageDto(groupedLanguages))
+                .map(mapGroupedLanguagesToLanguageDto(groupedLanguages))
                 .collect(Collectors.toList());
     }
 
-    private Function<String, LanguageDto> mapToLanguageDto(Map<String, List<ProviderTrendingRepoDto>> groupedLanguages) {
+    private Function<String, LanguageDto> mapGroupedLanguagesToLanguageDto(Map<String, List<ProviderTrendingRepoDto>> groupedLanguages) {
         return language -> buildLanguageDto(groupedLanguages, language, getRepositories(groupedLanguages, language));
     }
 
