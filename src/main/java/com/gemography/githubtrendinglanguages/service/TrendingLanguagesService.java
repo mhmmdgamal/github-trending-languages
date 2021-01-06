@@ -14,6 +14,8 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+import static org.springframework.http.HttpStatus.OK;
+
 @Service
 @RequiredArgsConstructor
 public class TrendingLanguagesService {
@@ -24,7 +26,7 @@ public class TrendingLanguagesService {
     }
 
     private TrendingLanguagesDto buildTrendingLanguagesDto() {
-        return new TrendingLanguagesDto(200, getLanguages(getGroupedLanguages()));
+        return new TrendingLanguagesDto(OK.value(), getLanguages(getGroupedLanguages()));
     }
 
     private Map<String, List<ProviderTrendingRepoDto>> getGroupedLanguages() {
