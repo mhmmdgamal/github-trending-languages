@@ -16,9 +16,9 @@ public class TrendingReposConsumer {
     private final Environment environment;
     private final RestTemplate restTemplate;
 
-    public ResponseEntity<ProviderTrendingReposDto> fetchTrendingRepos() {
+    public ProviderTrendingReposDto fetchTrendingRepos() {
         try {
-            return restTemplate.getForEntity(prepareUrlWithLastDays(), ProviderTrendingReposDto.class);
+            return restTemplate.getForObject(prepareUrlWithLastDays(), ProviderTrendingReposDto.class);
         } catch (Exception e) {
             throw new ProviderGeneralException("Error while fetching repos from github");
         }

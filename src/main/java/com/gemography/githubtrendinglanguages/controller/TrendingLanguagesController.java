@@ -17,6 +17,6 @@ public class TrendingLanguagesController {
 
     @GetMapping("/repositories")
     public ResponseEntity<ProviderTrendingReposDto> fetchTrendingRepos() {
-        return trendingReposConsumer.fetchTrendingRepos();
+        return ResponseEntity.ok(trendingReposConsumer.fetchTrendingRepos());
     }
 }
