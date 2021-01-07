@@ -6,6 +6,7 @@ import com.gemography.githubtrendinglanguages.dto.TrendingLanguagesDto;
 import com.gemography.githubtrendinglanguages.provider.consumer.TrendingReposConsumer;
 import com.gemography.githubtrendinglanguages.provider.dto.ProviderTrendingRepoDto;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.stream.Collectors;
 
 import static org.springframework.http.HttpStatus.OK;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class TrendingLanguagesService {
@@ -30,6 +32,7 @@ public class TrendingLanguagesService {
     }
 
     private Map<String, List<ProviderTrendingRepoDto>> getGroupedLanguages() {
+        log.info("Start fetching github trending repos in the last 30 days");
         return trendingReposConsumer.fetchTrendingRepos()
                 .getProviderTrendingRepos()
                 .stream()
@@ -43,7 +46,7 @@ public class TrendingLanguagesService {
     }
 
     private Function<ProviderTrendingRepoDto, String> groupByLanguages() {
-        return providerTrendingRepo -> providerTrendingRepo.getLanguage();
+        return ProviderTrendingRepoDto::getLanguage;
     }
 
     private List<LanguageDto> getLanguages(Map<String, List<ProviderTrendingRepoDto>> groupedLanguages) {
