@@ -12,7 +12,8 @@ $ git clone https://github.com/mhmmdgamal/github-trending-languages.git
 
 #### Prerequisite
 
-Your operating system must have the JDK greater then or equal 1.8 installed and it's recommended that you install the IDE to look up the source code.
+Your operating system must have the JDK greater than or equal 1.8 installed, and it's recommended that you install the
+ IDE to look up the source code.
 
 #### Test
 
@@ -57,7 +58,7 @@ On Windows
 ```
 
 ```
-GET http://localhost:8080/api/v1/repositories
+GET http://localhost:8080/api/v1/github/trending/languages
 ```
 
 ## Example
@@ -65,7 +66,7 @@ GET http://localhost:8080/api/v1/repositories
 #### Success
 
 ```
-GET http://localhost:8080/api/v1/repositories
+GET http://localhost:8080/api/v1/github/trending/languages
 ```
 
 ```json
@@ -107,7 +108,7 @@ GET http://localhost:8080/api/v1/repositories
 #### Success
 
 ```
-GET http://localhost:8080/api/v1/repositories
+GET http://localhost:8080/api/v1/github/trending/languages
 ```
 ```json
 {

@@ -38,7 +38,7 @@ public class TrendingLanguagesControllerTests {
     public void fetchTrendingLanguages_whenSuccess_thenReturnCode200() throws Exception {
         fetchTrendingLanguages_whenSuccess_thenReturnCode200_Mocks();
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/repositories")
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/github/trending/languages")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.code").value(OK.value()));
@@ -53,7 +53,7 @@ public class TrendingLanguagesControllerTests {
     public void fetchTrendingLanguages_whenThrowException_thenReturnCode503() throws Exception {
         fetchTrendingLanguages_whenThrowException_thenReturnCode503_Mocks();
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/repositories")
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/github/trending/languages")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.code").value(SERVICE_UNAVAILABLE.value()));

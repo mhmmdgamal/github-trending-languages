@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/github")
 @RequiredArgsConstructor
 public class TrendingLanguagesController {
 
     private final TrendingLanguagesService trendingLanguagesService;
 
-    @GetMapping("/repositories")
+    @GetMapping("/trending/languages")
     public ResponseEntity<TrendingLanguagesDto> fetchTrendingLanguages() {
         return ResponseEntity.ok(trendingLanguages());
     }
