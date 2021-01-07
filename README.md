@@ -59,3 +59,59 @@ On Windows
 ```
 GET http://localhost:8080/api/v1/repositories
 ```
+
+## Example
+
+#### Success
+
+```
+GET http://localhost:8080/api/v1/repositories
+```
+
+```json
+{
+    "code": 200,
+    "languages": [
+        {
+            "name": "C#",
+            "count": 4,
+            "repositories": [
+                {
+                    "name": "taskbar-groups",
+                    "url": "https://github.com/tjackenpacken/taskbar-groups"
+                },
+                {
+                    "name": "SteamTools",
+                    "url": "https://github.com/rmbadmin/SteamTools"
+                }
+            ]
+        },
+        {
+            "name": "C",
+            "count": 4,
+            "repositories": [
+                {
+                    "name": "n64bootloader",
+                    "url": "https://github.com/clbr/n64bootloader"
+                },
+                {
+                    "name": "ByteDance-HIDS",
+                    "url": "https://github.com/bytedance/ByteDance-HIDS"
+                }
+            ]
+        }
+    ]
+}
+```
+
+#### Success
+
+```
+GET http://localhost:8080/api/v1/repositories
+```
+```json
+{
+    "code": 503,
+    "languages": []
+}
+```
