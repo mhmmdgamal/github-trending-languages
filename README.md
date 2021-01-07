@@ -1,4 +1,4 @@
-# Github Trending Languages
+# Github Trending Languages (Spring Boot)
 ## List trending languages from github, simply translates to fetching the most starred repos created in the last 30 days ( from now )
 
 
